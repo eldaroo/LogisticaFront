@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import './NewOrderForm.css';
 import { connect } from "react-redux";
-import { createOrder } from "./actions";
+import { saveOrder } from "./thunks";
 
 const NewOrderForm = ({orders, onCreatePressed}) => {
     const [inputValue, setInputValue] = useState('');
@@ -34,7 +34,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    onCreatePressed: text => dispatch(createOrder(text)),
+    onCreatePressed: text => dispatch(saveOrder(text)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewOrderForm);

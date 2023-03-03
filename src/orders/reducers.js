@@ -22,8 +22,8 @@ export const orders = (state = [], action ) => {
       return state.concat(order);
     }
     case REMOVE_ORDER: {
-      const { order } = payload;
-      return state.filter((object) => object.id !== order.id);
+      const { order: orderToRemove } = payload;
+      return state.filter((order) => order.id !== orderToRemove.id);
     }
     case LOAD_ORDERS_SUCCESS: {
 

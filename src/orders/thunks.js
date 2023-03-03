@@ -1,4 +1,4 @@
-import {loadOrdersFailure, loadOrdersSuccess, loadOrdersInProgress, createOrder} from "./actions";
+import {loadOrdersFailure, loadOrdersSuccess, loadOrdersInProgress, createOrder, removeOrder} from "./actions";
 
 export const loadOrders = () => async (dispatch, getState) => {
     try {
@@ -30,8 +30,21 @@ export const saveOrder = text => async (dispatch, getState) => {
     }
 }
 
-export const removeOrder = order => async (dispatch, getState) => {
+export const removeOrderRequest = order => async (dispatch, getState) => {
+    try {
+        const response = await fetch(`http://localhost:8080/order/${order.id}`, {
+            headers: {
+                'Content-Type': 'application/json',
+            },       
+        method: 'delete',
+        });
+        const removeOrderResponse = await response.json();
+        console.log(removeOrderResponse);
+        dispatch(removeOrder(order));
+    } catch (e) {
+        dispatch(displayAlert(e));
 
+    }
 }
 
 export const displayAlert = text => () => {

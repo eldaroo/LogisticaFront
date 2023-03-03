@@ -24,7 +24,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    onRemovePressed: text => dispatch(removeOrder(text)),
+    onRemovePressed: order => dispatch(removeOrder(order)),
     startLoadingOrders: () => dispatch(loadOrders())
 });
 

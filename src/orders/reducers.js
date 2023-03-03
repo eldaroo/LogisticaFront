@@ -16,15 +16,14 @@ export const isLoading = (state = false, action) => {
 
 export const orders = (state = [], action ) => {
   const { type, payload } = action;
-
   switch (type) {
     case CREATE_ORDER: {
       const { order } = payload;
       return state.concat(order);
     }
     case REMOVE_ORDER: {
-      const { text } = payload;
-      return state.filter((order) => order.text !== text);
+      const { order } = payload;
+      return state.filter((object) => object.id !== order.id);
     }
     case LOAD_ORDERS_SUCCESS: {
 

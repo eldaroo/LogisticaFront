@@ -4,9 +4,9 @@ export const createOrder = order => ({
     payload: {order}
 });
 export const REMOVE_ORDER = 'REMOVE_ORDER';
-export const removeOrder = text => ({
+export const removeOrder = order => ({
     type: REMOVE_ORDER,
-    payload: {text}
+    payload: {order}
 });
 
 export const LOAD_ORDERS_IN_PROGRESS = 'LOAD_ORDERS_IN_PROGRESS';

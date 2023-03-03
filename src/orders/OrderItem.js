@@ -9,8 +9,8 @@ const OrderItem = ({order, onRemovePressed}) => (
             <button className="completed-button">Mark As Completed</button>
             <button 
                 className="remove-button" 
-                onClick={() => onRemovePressed(order.text)}
-            >Remove</button>
+                onClick={() => onRemovePressed(order)}
+                >Remove</button>
         </div>
     </div>
 )

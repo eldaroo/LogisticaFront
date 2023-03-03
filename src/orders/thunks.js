@@ -15,7 +15,6 @@ export const loadOrders = () => async (dispatch, getState) => {
 export const saveOrder = text => async (dispatch, getState) => {
     try {
         const body = JSON.stringify({text});
-        console.log(body);
         const response = await fetch('http://localhost:8080/order/save', {
             headers: {
                 'Content-Type': 'application/json',
@@ -29,6 +28,10 @@ export const saveOrder = text => async (dispatch, getState) => {
         dispatch(displayAlert(e));
 
     }
+}
+
+export const removeOrder = order => async (dispatch, getState) => {
+
 }
 
 export const displayAlert = text => () => {

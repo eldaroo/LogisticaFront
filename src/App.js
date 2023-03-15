@@ -1,13 +1,20 @@
 import React from 'react';
 import { hot } from 'react-hot-loader';
 import './App.css';
-import OrderList from './orders/OrderList';
-import NewOrderForm from './orders/NewOrderForm';
+import Navbar from './Navbar';
+import { Route, Routes } from 'react-router-dom';
+import { Home } from './pages/Home';
+import { LogInPage } from './pages/LoginPage';
 
 const App = () => (
     <div className="App list-wrapper">
-        <NewOrderForm />
-        <OrderList />
+        <Navbar />
+        <div className='container'>
+            <Routes>
+                <Route path='/' element = { <Home />}></Route>
+                <Route path='/login' element = { <LogInPage />}></Route>
+            </Routes>
+        </div>
     </div>
 );
 
